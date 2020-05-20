@@ -23,24 +23,17 @@ set wrap
 set breakindent
 set formatoptions=l
 set lbr
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:❡,precedes:«,extends:»
 
 " Color & syntax
 filetype plugin on
 set termguicolors
 syntax on
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
-
-" Dev Icons
-let g:DevIconsEnableFolderExtensionPatternMatching = 1
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*\.spec\.ts$'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*\.spec\.js$'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*\.test\.ts$'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*\.test\.js$'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*\.stories\.ts$'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*\.stories\.js$'] = ''
+let g:nord_bold = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+colorscheme nord
+au BufNewFile,BufRead /*.rasi setf css
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -50,24 +43,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " Ale
 let g:ale_fixers = {'javascript': ['eslint']}
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '!'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 
 " Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='oceanicnext'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:airline_theme='nord'
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
-" Custom Keymapping
-noremap <C-j> :tabprevious<CR>
-noremap <C-k> :tabnext<CR>
-noremap <C-h> :NERDTreeToggle<CR>
-noremap <C-o> :copen<CR>
-noremap <C-p> :cclose<CR>
-noremap <C-e> :SyntasticCheck<CR>
-noremap <C-I> :bn<CR>
+" Keymapping
+noremap <C-s> :setlocal spell spelllang=en_us<CR>
+noremap <C-a> :set nospell<CR>
