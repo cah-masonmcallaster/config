@@ -52,3 +52,4 @@ let g:airline_theme='nord'
 " Keymapping
 noremap <C-s> :setlocal spell spelllang=en_us<CR>
 noremap <C-a> :set nospell<CR>
+noremap <C-h> :Explore<CR>
